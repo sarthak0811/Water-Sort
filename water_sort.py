@@ -1,5 +1,4 @@
 from collections import deque
-from image_process import colour_array
 
 
 def top(arr):
@@ -130,7 +129,7 @@ def best_first_search(initial_state):
                                 h_val=heuristic(neighbor)
                                 priority_queue.append({neighbor_tuple: [state,h_val]})
         priority_queue=sorted(priority_queue,key=lambda x: list(x.values())[0][1])
-    return None  # No valid solution found
+    return None 
 
 def moves(path):
     for i in range(len(path)-1):
@@ -148,23 +147,3 @@ def moves(path):
             print(f"move tube {move[0]+1} to tube {move[1]+1}")
         elif b<a:
             print(f"move tube {move[1]+1} to tube {move[0]+1}")
-
-
-# image_path="Test_Cases/test_625.PNG"
-# image_path="Test_Cases/test_627.jpeg"
-image_path="Test_Cases/test_630.jpeg"
-# image_path="Test_Cases/test_631.jpeg"
-# image_path="Test_Cases/test_633.jpeg"
-# image_path="Test_Cases/test_634.jpeg"
-# image_path="Test_Cases/test_637.jpeg"
-# image_path="Test_Cases/test_648.jpeg"
-# image_path="Test_Cases/test_649.jpeg"
-            
-empty_tubes=2
-
-# image_path=str(input("Enter the path of the image: "))
-# empty_tubes=int(input("Enter the number of empty tubes: "))
-
-initial_state=colour_array(image_path,empty_tubes)
-path=best_first_search(initial_state)
-moves(path)
