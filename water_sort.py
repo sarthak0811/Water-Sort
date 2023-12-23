@@ -1,4 +1,3 @@
-#%%
 from collections import deque
 from image_process import colour_array
 
